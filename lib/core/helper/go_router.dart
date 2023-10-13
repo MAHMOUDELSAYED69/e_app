@@ -10,8 +10,8 @@ class GoRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (context) => const LoginPage());
-      case '/Otp':
-        return MaterialPageRoute(builder: (context) => const OtpPage());
+      // case '/otp':
+      //   return MaterialPageRoute(builder: (context) => const OtpPage());
       case '/home':
         return MaterialPageRoute(builder: (context) => const HomePage());
       case '/prodect':

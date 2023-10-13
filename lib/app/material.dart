@@ -1,21 +1,24 @@
-
-import 'package:e_app/core/helper/go_router.dart';
-import 'package:e_app/view/widget/login_background.dart';
-import 'package:e_app/view/widget/login_center_input.dart';
 import 'package:flutter/material.dart';
-
-import '../view/screen/login.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../core/helper/go_router.dart';
+import '../cubits/auth_cubit/auth_cubit.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      // initialRoute: "/",
-      // onGenerateRoute: GoRouter.generateRoute,
-      home: LoginPage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => AuthCubit(),
+        ),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: "/",
+        onGenerateRoute: GoRouter.generateRoute,
+      ),
     );
   }
-} 
+}

@@ -1,5 +1,5 @@
 import 'package:e_app/core/constant/color.dart';
-import 'package:e_app/core/constant/images.dart';
+import 'package:e_app/core/constant/image.dart';
 import 'package:e_app/view/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 
