@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../core/helper/go_router.dart';
 import '../cubits/auth_cubit/auth_cubit.dart';
+import '../view/screen/home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,8 +17,9 @@ class MyApp extends StatelessWidget {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: "/",
-        onGenerateRoute: GoRouter.generateRoute,
+        home: HomePage(),
+        // initialRoute: "/",
+        // onGenerateRoute: GoRouter.generateRoute,
       ),
     );
   }
