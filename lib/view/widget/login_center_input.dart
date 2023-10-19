@@ -1,12 +1,12 @@
 import 'package:e_app/core/constant/color.dart';
 import 'package:e_app/core/helper/custom_print.dart';
 import 'package:e_app/core/helper/scaffold_snakbar.dart';
-import 'package:e_app/view/screen/otp.dart';
 import 'package:e_app/view/widget/custom_button.dart';
 import 'package:e_app/view/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import '../../core/constant/route.dart';
 import '../../cubits/auth_cubit/auth_cubit.dart';
 
 class CenterInput extends StatelessWidget {
@@ -24,11 +24,11 @@ class CenterInput extends StatelessWidget {
         scaffoldSnackBar(context, "invalid name or phone number");
       } else if (state is LoginSccess) {
         isloading = false;
+        Navigator.pushReplacementNamed(
+          context,
+          kOtp,
+        );
         scaffoldSnackBar(context, "Sccess");
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => OtpPage(phoneNum: phoneNum!)));
       } else if (state is LoginLoading) {
         isloading = true;
       }
@@ -96,8 +96,7 @@ class CenterInput extends StatelessWidget {
                           formKey.currentState!.save();
                           BlocProvider.of<AuthCubit>(context).userLogin(
                               phoneNum: phoneNum!, fullName: fullName!);
-                          // Navigator.pushReplacementNamed(context, kOtp,
-                          //     arguments: {"phone":phoneNum});
+
                           kPrint("fullName : $fullName & phoneNum : $phoneNum");
                         }
                       },

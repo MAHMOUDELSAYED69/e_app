@@ -1,4 +1,5 @@
 import 'package:e_app/core/constant/color.dart';
+import 'package:e_app/core/constant/route.dart';
 import 'package:e_app/core/helper/custom_print.dart';
 import 'package:e_app/core/helper/scaffold_snakbar.dart';
 import 'package:e_app/cubits/auth_cubit/auth_cubit.dart';
@@ -6,21 +7,19 @@ import 'package:e_app/view/widget/custom_button.dart';
 import 'package:e_app/view/widget/otp_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class OtpPage extends StatelessWidget {
-  const OtpPage({super.key, required this.phoneNum});
-  final String phoneNum;
+  const OtpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // final arguments =
-    //     ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    // final phoneNum = arguments["phone"];
     String? fieldA, fieldB, fieldC, fieldD;
     GlobalKey<FormState> formKey = GlobalKey();
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is OtpSccess) {
           scaffoldSnackBar(context, "Sccess");
-        //  Navigator.pushReplacementNamed(context, kHome);
+          Navigator.pushReplacementNamed(context, kHelp);
         } else if (state is OtpFailure) {
           scaffoldSnackBar(context, "Invalid Number!");
         }
@@ -95,9 +94,10 @@ class OtpPage extends StatelessWidget {
                       String? fieldSubmitted =
                           fieldA! + fieldB! + fieldC! + fieldD!;
                       kPrint(fieldSubmitted);
-                      kPrint(phoneNum);
+                      kPrint("phoneNum");
                       BlocProvider.of<AuthCubit>(context).verifyUser(
-                          fieldSubmitted: fieldSubmitted, phoneNum: phoneNum);
+                          fieldSubmitted: fieldSubmitted,
+                          phoneNum: "01061172139");
                     }
                   },
                   title: "Verify"),

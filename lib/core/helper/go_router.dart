@@ -1,3 +1,4 @@
+import 'package:e_app/view/screen/help.dart';
 import 'package:e_app/view/screen/home.dart';
 import 'package:e_app/view/screen/login.dart';
 import 'package:e_app/view/screen/otp.dart';
@@ -10,8 +11,10 @@ class GoRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (context) => const LoginPage());
-      // case '/otp':
-      //   return MaterialPageRoute(builder: (context) => const OtpPage());
+      case '/otp':
+        return MaterialPageRoute(builder: (context) => const OtpPage());
+      case '/help':
+        return MaterialPageRoute(builder: (context) => const HelpPage());
       case '/home':
         return MaterialPageRoute(builder: (context) => const HomePage());
       case '/prodect':

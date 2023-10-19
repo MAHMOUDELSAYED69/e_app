@@ -20,12 +20,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () {
+              Navigator.canPop(context);
+            },
+            icon: const Icon(Icons.arrow_back)),
+      ),
       body: Container(
         decoration: const BoxDecoration(gradient: kBackgroundScreen),
       ),
       floatingActionButton: FloatingActionButton(
-      
-        backgroundColor:kBlue,
+        backgroundColor: kBlue,
         child: const Icon(Icons.home),
         onPressed: () {},
       ),
@@ -34,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         // shadow:
         //     const Shadow(color: kGrey, blurRadius: 30, offset: Offset(2, -2)),
         icons: iconList,
-        elevation: 100 ,
+        elevation: 100,
 
         inactiveColor: kGrey,
         activeColor: kBlue,

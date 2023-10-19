@@ -1,10 +1,8 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:e_app/core/helper/custom_print.dart';
 import 'package:meta/meta.dart';
-
 import '../../data/service/login_service.dart';
-
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {

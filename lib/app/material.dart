@@ -1,3 +1,4 @@
+import 'package:e_app/view/screen/help.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../core/helper/go_router.dart';
@@ -17,9 +18,9 @@ class MyApp extends StatelessWidget {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
-        // initialRoute: "/",
-        // onGenerateRoute: GoRouter.generateRoute,
+        //  home: HelpPage(),
+        initialRoute: "/",
+        onGenerateRoute: GoRouter.generateRoute,
       ),
     );
   }
