@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:e_app/core/constant/image.dart';
+import 'package:e_app/core/constant/route.dart';
 import 'package:e_app/core/helper/responsive.dart';
 import 'package:e_app/view/screen/bottom_navigation_bar/notfication.dart';
 import 'package:e_app/view/screen/home_screen/widgets/Catogry.dart';
@@ -155,138 +156,143 @@ class _LaptopItemState extends State<LaptopItem> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 239,
-      child: Container(
-        decoration: ShapeDecoration(
-          color: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          shadows: const [
-            BoxShadow(
-              color: Color(0x3F000000),
-              blurRadius: 7,
-              offset: Offset(2, 2),
-              spreadRadius: 5,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, kProduct);
+        },
+        child: Container(
+          decoration: ShapeDecoration(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
-          ],
-        ),
-        child: Column(children: [
-          Stack(
-            children: [
-              Container(
-                decoration: ShapeDecoration(
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  shadows: const [
-                    BoxShadow(
-                      color: Color(0x3F000000),
-                      blurRadius: 4,
-                      offset: Offset(1, 1),
-                      spreadRadius: 2,
+            shadows: const [
+              BoxShadow(
+                color: Color(0x3F000000),
+                blurRadius: 7,
+                offset: Offset(2, 2),
+                spreadRadius: 5,
+              ),
+            ],
+          ),
+          child: Column(children: [
+            Stack(
+              children: [
+                Container(
+                  decoration: ShapeDecoration(
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                  ],
-                ),
-              ),
-              Center(
-                child: Image.asset(
-                  kMacbookApple,
-                  width: 150,
-                ),
-              ),
-              Positioned(
-                left: 119,
-                child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      isFavorite = !isFavorite;
-                    });
-                  },
-                  icon: Icon(
-                    Icons.favorite,
-                    color: isFavorite ? Colors.red : Colors.white,
                     shadows: const [
                       BoxShadow(
                         color: Color(0x3F000000),
-                        blurRadius: 8,
-                        offset: Offset(0, 6),
-                        spreadRadius: 30,
+                        blurRadius: 4,
+                        offset: Offset(1, 1),
+                        spreadRadius: 2,
                       ),
                     ],
-                    size: 35,
                   ),
                 ),
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'Razer',
-                  style: TextStyle(
-                    color: Color(0xFF0062BD),
-                    fontSize: 18,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                    height: 0,
+                Center(
+                  child: Image.asset(
+                    kMacbookApple,
+                    width: 150,
                   ),
                 ),
-                const SizeBoxeVirtcal(value: 0.8),
-                const Text(
-                  'Razer Blade Stealth 13',
-                  style: TextStyle(
-                    color: Color(0xFF464646),
-                    fontSize: 12,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w400,
-                    height: 0,
-                  ),
-                ),
-                const SizeBoxeVirtcal(value: .6),
-                Row(
-                  children: [
-                    const Text(
-                      '32,000 EGP',
-                      style: TextStyle(
-                        color: Color(0xFF464646),
-                        fontSize: 12,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        height: 0,
-                      ),
+                Positioned(
+                  left: 119,
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isFavorite = !isFavorite;
+                      });
+                    },
+                    icon: Icon(
+                      Icons.favorite,
+                      color: isFavorite ? Colors.red : Colors.white,
+                      shadows: const [
+                        BoxShadow(
+                          color: Color(0x3F000000),
+                          blurRadius: 8,
+                          offset: Offset(0, 6),
+                          spreadRadius: 30,
+                        ),
+                      ],
+                      size: 35,
                     ),
-                    const Spacer(),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: const ShapeDecoration(
-                        gradient: LinearGradient(
-                          end: Alignment(0.80, 0.99),
-                          begin: Alignment(-0.77, 0.40),
-                          colors: [Color(0xFF0062BD), Color(0x000062BD)],
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
-                          ),
-                        ),
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                )
               ],
             ),
-          ),
-        ]),
+            Padding(
+              padding: const EdgeInsets.only(left: 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Razer',
+                    style: TextStyle(
+                      color: Color(0xFF0062BD),
+                      fontSize: 18,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                      height: 0,
+                    ),
+                  ),
+                  const SizeBoxeVirtcal(value: 0.8),
+                  const Text(
+                    'Razer Blade Stealth 13',
+                    style: TextStyle(
+                      color: Color(0xFF464646),
+                      fontSize: 12,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                      height: 0,
+                    ),
+                  ),
+                  const SizeBoxeVirtcal(value: .6),
+                  Row(
+                    children: [
+                      const Text(
+                        '32,000 EGP',
+                        style: TextStyle(
+                          color: Color(0xFF464646),
+                          fontSize: 12,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w400,
+                          height: 0,
+                        ),
+                      ),
+                      const Spacer(),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: const ShapeDecoration(
+                          gradient: LinearGradient(
+                            end: Alignment(0.80, 0.99),
+                            begin: Alignment(-0.77, 0.40),
+                            colors: [Color(0xFF0062BD), Color(0x000062BD)],
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }

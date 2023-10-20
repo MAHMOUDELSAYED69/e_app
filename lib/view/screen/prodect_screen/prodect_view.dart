@@ -1,22 +1,23 @@
+import 'package:e_app/core/constant/image.dart';
 import 'package:e_app/view/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
 List<String> changeImgag = [
-  "assets/images/helios-300_2-removebg-preview.png",
-  "assets/images/lap-removebg-preview.png",
-  "assets/images/laptop9-removebg-preview.png",
-  "assets/images/lap-removebg-preview.png"
+  kAerP3,
+  kAcerLaptop,
+  kAerp4,
+  kAerP3,
 ];
 String image = '';
 
-class Prodect extends StatefulWidget {
-  const Prodect({super.key});
+class ProdectPage extends StatefulWidget {
+  const ProdectPage({super.key});
 
   @override
-  State<Prodect> createState() => _ProdectState();
+  State<ProdectPage> createState() => _ProdectPageState();
 }
 
-class _ProdectState extends State<Prodect> {
+class _ProdectPageState extends State<ProdectPage> {
   @override
   void initState() {
     image = changeImgag[0];
