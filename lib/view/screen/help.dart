@@ -48,7 +48,7 @@ class HelpPage extends StatelessWidget {
                   const SizedBox(height: 315),
                   CustomButton(
                     onTap: () {
-                      Navigator.pushReplacementNamed(context, kHome);
+                      Navigator.pushNamed(context, kHome);
                     },
                     title: "Continue",
                   ),

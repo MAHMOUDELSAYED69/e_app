@@ -1,6 +1,12 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:e_app/core/constant/color.dart';
+import 'package:e_app/view/screen/bottom_navigation_bar/favorite.dart';
+import 'package:e_app/view/screen/bottom_navigation_bar/logout.dart';
+import 'package:e_app/view/screen/bottom_navigation_bar/notfication.dart';
+import 'package:e_app/view/screen/bottom_navigation_bar/setting.dart';
 import 'package:flutter/material.dart';
+
+import 'bottom_navigation_bar/home_page_2.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,23 +23,29 @@ class _HomePageState extends State<HomePage> {
     Icons.notifications_on_outlined,
     Icons.settings,
   ];
+  final List<Widget> classSwitch = const [
+    LogOutPage(),
+    FavoritePage(),
+    NotificationPage(),
+    SettingPage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.canPop(context);
-            },
-            icon: const Icon(Icons.arrow_back)),
-      ),
       body: Container(
         decoration: const BoxDecoration(gradient: kBackgroundScreen),
+        child: IndexedStack(
+          index: _bottomNavIndex,
+          children: classSwitch,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kBlue,
         child: const Icon(Icons.home),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const HomePage2()));
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
@@ -51,7 +63,9 @@ class _HomePageState extends State<HomePage> {
         iconSize: 28,
         leftCornerRadius: 24,
         rightCornerRadius: 24,
-        onTap: (index) => setState(() => _bottomNavIndex = index),
+        onTap: (index) {
+          setState(() => _bottomNavIndex = index);
+        },
         //other params
       ),
     );
