@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 
 import 'bottom_navigation_bar/home_page_2.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePageTest extends StatefulWidget {
+  const HomePageTest({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePageTest> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePageTest> {
   int _bottomNavIndex = 1;
   List<IconData> iconList = const [
     Icons.login,

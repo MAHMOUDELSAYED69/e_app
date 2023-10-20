@@ -1,3 +1,4 @@
+import 'package:e_app/view/screen/prodect_screen/prodect_view.dart';
 import 'package:flutter/material.dart';
 
 class NotificationPage extends StatelessWidget {
@@ -16,7 +17,7 @@ class NotificationPage extends StatelessWidget {
             colors: [Color(0xD80062BD), Color(0x000062BD)],
           ),
         ),
-        child: const Padding(
+        child: const   Padding(
           padding: EdgeInsets.only(left: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +25,7 @@ class NotificationPage extends StatelessWidget {
               SizedBox(
                 height: 63,
               ),
-              //BackIcon(),
+              BackIcon(),
               SizedBox(
                 height: 150,
               ),

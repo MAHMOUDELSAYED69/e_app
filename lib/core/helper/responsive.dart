@@ -1,4 +1,4 @@
-import 'package:e_app/core/helper/custom_print.dart';
+
 import 'package:flutter/material.dart';
 
 class SizeConfig {
@@ -7,21 +7,39 @@ class SizeConfig {
   static double? defaultSize;
   static Orientation? orientation;
 
-  static void init(BuildContext context) {
-    screenWidth = MediaQuery.sizeOf(context).width;
-    screenHeight = MediaQuery.sizeOf(context).height;
+  void init(BuildContext context) {
+    screenWidth = MediaQuery.of(context).size.width;
+    screenHeight = MediaQuery.of(context).size.height;
     orientation = MediaQuery.of(context).orientation;
-
+   
     defaultSize = orientation == Orientation.landscape
         ? screenHeight! * .024
         : screenWidth! * .024;
 
-    kPrint('this is the default size $defaultSize');
+     print('this is the default size $defaultSize');
   }
+}
+class SizeBoxeHorsental extends StatelessWidget {
+  const SizeBoxeHorsental({super.key, required this.value});
+  final double value;
 
- static void prints() {
-    kPrint(screenHeight ?? "height");
-    kPrint(screenWidth ?? "width");
-    kPrint(orientation ?? "orien");
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: SizeConfig.defaultSize! * value,
+    );
+  }
+}
+
+
+
+class SizeBoxeVirtcal extends StatelessWidget {
+  const SizeBoxeVirtcal({super.key, required this.value});
+  final double value;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: SizeConfig.defaultSize! * value,
+    );
   }
 }

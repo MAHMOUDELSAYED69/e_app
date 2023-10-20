@@ -10,7 +10,7 @@ void main() {
 
 //?@MahmoudElSayed96
 // TODO:
-//! splash x
+//! splash x;
 //! login  !
 //! otp    x
 //! help   !

@@ -1,5 +1,6 @@
 import 'package:e_app/core/constant/color.dart';
 import 'package:e_app/core/helper/custom_print.dart';
+import 'package:e_app/core/helper/responsive.dart';
 import 'package:e_app/core/helper/scaffold_snakbar.dart';
 import 'package:e_app/view/widget/custom_button.dart';
 import 'package:e_app/view/widget/custom_text_form_field.dart';
@@ -43,8 +44,8 @@ class CenterInput extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 //!
-                width: 372,
-                height: 350,
+                width: SizeConfig.defaultSize! * 37,
+                height: SizeConfig.defaultSize! * 37,
                 decoration: const BoxDecoration(
                     boxShadow: [
                       BoxShadow(
@@ -59,11 +60,15 @@ class CenterInput extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 10),
+                    const SizeBoxeVirtcal(
+                      value: 1,
+                    ),
                     const Text("Welcome",
                         style: TextStyle(fontSize: 30, color: kBlack)),
                     //!
-                    const SizedBox(height: 10),
+                    const SizeBoxeVirtcal(
+                      value: 1,
+                    ),
                     const Divider(
                       color: kBlue,
                       //!
@@ -71,24 +76,30 @@ class CenterInput extends StatelessWidget {
                       endIndent: 120,
                       indent: 120,
                     ),
-                    const SizedBox(height: 35),
+                    const SizeBoxeVirtcal(
+                      value: 2.5,
+                    ),
                     CustomTextFormField(
                       onSaved: (data) {
                         fullName = data;
                       },
-                      width: 280,
+                      width: SizeConfig.screenWidth! * 0.7,
                       label: "Enter your Full Name",
                     ),
-                    const SizedBox(height: 30),
+                    const SizeBoxeVirtcal(
+                      value: 2,
+                    ),
                     CustomTextFormField(
+                      keyboardType: TextInputType.phone,
+
                       onSaved: (data) {
                         phoneNum = data;
                       },
                       //!
-                      width: 280,
+                      width: SizeConfig.screenWidth! * 0.7,
                       label: "Enter your Phone Number",
                     ),
-                    const SizedBox(height: 30),
+                    const SizeBoxeVirtcal(value: 2.5),
                     CustomButton(
                       title: "Login",
                       onTap: () {

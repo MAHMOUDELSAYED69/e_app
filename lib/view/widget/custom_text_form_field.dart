@@ -13,7 +13,8 @@ class CustomTextFormField extends StatelessWidget {
       this.isObscure,
       this.controller,
       this.height,
-      this.width});
+      this.width,
+      this.keyboardType, this.suffixIcon});
   final String? hintText;
   final String? label;
   final FormFieldSetter<String>? onSaved;
@@ -24,6 +25,10 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final double? height;
   final double? width;
+  final TextInputType? keyboardType;
+  final  Icon? suffixIcon;
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,7 +44,9 @@ class CustomTextFormField extends StatelessWidget {
           ]),
       height: height,
       width: width,
-      child: TextFormField(
+      child: TextFormField( 
+        
+        keyboardType: keyboardType,
         controller: controller,
         obscureText: isObscure ?? false,
         validator: validator ??
@@ -50,6 +57,7 @@ class CustomTextFormField extends StatelessWidget {
                 return null;
               }
             },
+            
         onFieldSubmitted: onFieldSubmitted,
         onSaved: onSaved,
         onChanged: onChanged,
@@ -57,11 +65,12 @@ class CustomTextFormField extends StatelessWidget {
           filled: true,
           fillColor: kWhite,
           hintText: hintText,
+          suffixIcon: suffixIcon,
           label: Text(label ?? ""),
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: kWhite),
             borderRadius: BorderRadius.all(Radius.circular(10)),
-          ),
+          ), 
           focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               borderSide: BorderSide(color: Colors.blue)),
@@ -72,6 +81,7 @@ class CustomTextFormField extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(10)),
               borderSide: BorderSide(color: Colors.red)),
         ),
+        
       ),
     );
   }
