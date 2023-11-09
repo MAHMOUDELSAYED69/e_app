@@ -1,6 +1,7 @@
 import 'package:e_app/core/constant/color.dart';
 import 'package:e_app/core/constant/route.dart';
 import 'package:e_app/core/helper/custom_print.dart';
+import 'package:e_app/core/helper/responsive.dart';
 import 'package:e_app/core/helper/scaffold_snakbar.dart';
 import 'package:e_app/cubits/auth_cubit/auth_cubit.dart';
 import 'package:e_app/view/widget/custom_button.dart';
@@ -18,7 +19,6 @@ class OtpPage extends StatelessWidget {
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is OtpSccess) {
-          scaffoldSnackBar(context, "Sccess");
           Navigator.pushReplacementNamed(context, kHelp);
         } else if (state is OtpFailure) {
           scaffoldSnackBar(context, "Invalid Number!");
@@ -39,8 +39,8 @@ class OtpPage extends StatelessWidget {
                   height: 0,
                 ),
               ),
-              const SizedBox(height: 30),
-              //! const SizeBoxeHorsentel(value: 5),
+            
+              const SizeVertical(value: 10),
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: Form(
@@ -72,10 +72,12 @@ class OtpPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
-              //!  const SizeBoxeHorsentel(value: 1),
+           
+              const SizeVertical(value: 8),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  formKey.currentState!.reset();
+                },
                 child: const Text(
                   'Resend Code',
                   style: TextStyle(
@@ -85,8 +87,8 @@ class OtpPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
-              //!  const SizeBoxeHorsentel(value: 2),
+             
+              const SizeVertical(value: 7),
               CustomButton(
                   onTap: () {
                     if (formKey.currentState!.validate()) {

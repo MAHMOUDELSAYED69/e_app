@@ -25,7 +25,7 @@ class _SplashPageState extends State<SplashPage>
         setState(() {});
       });
     animationController?.repeat(reverse: true);
-    GetToNewScreen();
+    getToNewScreen();
   }
 
   @override
@@ -56,7 +56,7 @@ class _SplashPageState extends State<SplashPage>
     );
   }
 
-  void GetToNewScreen() {
+  void getToNewScreen() {
     Future.delayed(
       const Duration(
         seconds: 3,
@@ -68,14 +68,5 @@ class _SplashPageState extends State<SplashPage>
         );
       },
     );
-  }
-}
-
-class Phone extends StatelessWidget {
-  const Phone({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp();
   }
 }

@@ -1,38 +1,38 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:e_app/core/constant/color.dart';
-import 'package:e_app/view/screen/bottom_navigation_bar/favorite.dart';
-import 'package:e_app/view/screen/bottom_navigation_bar/logout.dart';
-import 'package:e_app/view/screen/bottom_navigation_bar/notfication.dart';
-import 'package:e_app/view/screen/bottom_navigation_bar/setting.dart';
+import 'package:e_app/view/screen/nav_bar/notfication.dart';
 import 'package:flutter/material.dart';
+import '../../core/constant/color.dart';
+import 'nav_bar/favorite.dart';
+import 'nav_bar/home_product.dart';
+import 'nav_bar/setting.dart';
 
-import 'bottom_navigation_bar/home_page_2.dart';
-
-class HomePageTest extends StatefulWidget {
-  const HomePageTest({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomePageTest> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePageTest> {
-  int _bottomNavIndex = 1;
-  List<IconData> iconList = const [
-    Icons.login,
+class _HomePageState extends State<HomePage> {
+  final List<IconData> iconList = const [
+    Icons.home,
     Icons.favorite,
     Icons.notifications_on_outlined,
     Icons.settings,
   ];
-  final List<Widget> classSwitch = const [
-    LogOutPage(),
-    FavoritePage(),
-    NotificationPage(),
-    SettingPage(),
+  final List<Widget> classSwitch = [
+    HomeProduct(),
+    const FavoritePage(),
+    const NotificationPage(),
+    const SettingPage(),
   ];
+  int _bottomNavIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(gradient: kBackgroundScreen),
         child: IndexedStack(
           index: _bottomNavIndex,
@@ -41,11 +41,8 @@ class _HomePageState extends State<HomePageTest> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kBlue,
-        child: const Icon(Icons.home),
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage2()));
-        },
+        child: const Icon(Icons.add, size: 35),
+        onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(
@@ -71,3 +68,4 @@ class _HomePageState extends State<HomePageTest> {
     );
   }
 }
+

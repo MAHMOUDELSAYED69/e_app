@@ -1,25 +1,26 @@
+import 'package:e_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
     super.key,
-    required this.ontap,
+    required this.onTap,
     required this.image,
   });
-  final VoidCallback ontap;
+  final VoidCallback onTap;
   final String image;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ontap,
+      onTap: onTap,
       child: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.all(7),
-       width: 60,
+        width: 60,
         height: 60,
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.white,
+          color: kWhite,
           boxShadow: [
             BoxShadow(
               color: Color(0x3F000000),

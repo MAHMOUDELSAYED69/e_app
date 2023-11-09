@@ -4,29 +4,6 @@ import 'package:e_app/core/helper/responsive.dart';
 import 'package:e_app/view/widget/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 
-// class LoginBackground extends StatelessWidget {
-//   const LoginBackground({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//         children: [
-//           const Spacer(),
-//           Container(
-//             height: SizeConfig().,
-//             width: double.infinity,
-//             decoration: const BoxDecoration(
-//                 borderRadius: BorderRadius.only(
-//                     topLeft: Radius.circular(60),
-//                     topRight: Radius.circular(60)),
-//                 color: kWhite),
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 const Spacer(flex: 8),
-//                 const Row(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-
 class LoginBackground extends StatelessWidget {
   const LoginBackground({
     super.key,
@@ -34,7 +11,7 @@ class LoginBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: SizeConfig.defaultSize! * 35,
+      top: SizeConfig.defaultSize! * 30,
       child: Container(
         height: SizeConfig.screenHeight,
         width: SizeConfig.screenWidth,
@@ -43,7 +20,7 @@ class LoginBackground extends StatelessWidget {
               topLeft: Radius.circular(50),
               topRight: Radius.circular(50),
             ),
-            color: Colors.white),
+            color: kWhite),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -56,18 +33,17 @@ class LoginBackground extends StatelessWidget {
                   indent: 30,
                   endIndent: 6,
                 )),
-                SizeBoxeHorsental(
+                SizeHorizontal(
                   value: 1,
                 ),
                 Text(
                   "OR",
                   style: TextStyle(
                     fontSize: 15,
-                    fontWeight: FontWeight.w300,
-                    color: Color(0xff639fd7),
+                    color: kBlue,
                   ),
                 ),
-                SizeBoxeHorsental(
+                SizeHorizontal(
                   value: 1,
                 ),
                 Expanded(
@@ -79,20 +55,20 @@ class LoginBackground extends StatelessWidget {
                 )),
               ],
             ),
-            const SizeBoxeVirtcal(value: 7),
+            const SizeVertical(value: 7),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Spacer(flex: 2),
-                CustomIconButton(ontap: () {}, image: kFacebookLogo),
+                CustomIconButton(onTap: () {}, image: kFacebookLogo),
                 const Spacer(),
-                CustomIconButton(ontap: () {}, image: kAppleLogo),
+                CustomIconButton(onTap: () {}, image: kAppleLogo),
                 const Spacer(),
-                CustomIconButton(ontap: () {}, image: kGoogleLogo),
+                CustomIconButton(onTap: () {}, image: kGoogleLogo),
                 const Spacer(flex: 2),
               ],
             ),
-            const SizeBoxeVirtcal(value: 10)
+            const SizeVertical(value: 10)
           ],
         ),
       ),

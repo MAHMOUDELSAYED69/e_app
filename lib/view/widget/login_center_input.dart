@@ -12,7 +12,6 @@ import '../../cubits/auth_cubit/auth_cubit.dart';
 
 class CenterInput extends StatelessWidget {
   const CenterInput({super.key});
-
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formKey = GlobalKey();
@@ -25,11 +24,7 @@ class CenterInput extends StatelessWidget {
         scaffoldSnackBar(context, "invalid name or phone number");
       } else if (state is LoginSccess) {
         isloading = false;
-        Navigator.pushReplacementNamed(
-          context,
-          kOtp,
-        );
-        scaffoldSnackBar(context, "Sccess");
+        Navigator.pushReplacementNamed(context, kOtp);
       } else if (state is LoginLoading) {
         isloading = true;
       }
@@ -37,85 +32,80 @@ class CenterInput extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: isloading,
-          child: Align(
-            alignment: Alignment.center,
-            child: Form(
-              key: formKey,
-              child: Container(
+          child: Column(
+            children: [
+              const SizeVertical(value: 18.5),
+              Align(
                 alignment: Alignment.center,
-                //!
-                width: SizeConfig.defaultSize! * 37,
-                height: SizeConfig.defaultSize! * 37,
-                decoration: const BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 10,
-                        offset: Offset(2, 5),
-                        spreadRadius: 4,
-                      ),
-                    ],
-                    color: kWhite,
-                    borderRadius: BorderRadius.all(Radius.circular(40))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizeBoxeVirtcal(
-                      value: 1,
+                child: Form(
+                  key: formKey,
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: SizeConfig.defaultSize! * 37,
+                    height: SizeConfig.defaultSize! * 35,
+                    decoration: const BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x3F000000),
+                            blurRadius: 10,
+                            offset: Offset(2, 5),
+                            spreadRadius: 4,
+                          ),
+                        ],
+                        color: kWhite,
+                        borderRadius: BorderRadius.all(Radius.circular(40))),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizeVertical(value: 1),
+                        const Text("Welcome",
+                            style: TextStyle(fontSize: 30, color: kBlack)),
+                        const SizeVertical(value: 1),
+                        const Divider(
+                          thickness: 4,
+                          endIndent: 120,
+                          indent: 120,
+                          color: kBlue,
+                        ),
+                        const SizeVertical(value: 2.5),
+                        CustomTextFormField(
+                          onSaved: (data) {
+                            fullName = data;
+                          },
+                          width: SizeConfig.screenWidth! * 0.7,
+                          label: "Enter your Full Name",
+                        ),
+                        const SizeVertical(value: 2),
+                        CustomTextFormField(
+                          keyboardType: TextInputType.phone,
+                          onSaved: (data) {
+                            phoneNum = data;
+                          },
+                          width: SizeConfig.screenWidth! * 0.7,
+                          label: "Enter your Phone Number",
+                        ),
+                        const SizeVertical(value: 2.5),
+                        CustomButton(
+                          title: "Login",
+                          onTap: () {
+                            if (formKey.currentState!.validate()) {
+                              formKey.currentState!.save();
+                              //! Service.
+                              Navigator.pushNamed(context,kOtp);
+                              // BlocProvider.of<AuthCubit>(context).userLogin(
+                              //     phoneNum: phoneNum!, fullName: fullName!);
+                              // kPrint(
+                              //     "fullName : $fullName & phoneNum : $phoneNum");
+                            }
+                          },
+                        )
+                      ],
                     ),
-                    const Text("Welcome",
-                        style: TextStyle(fontSize: 30, color: kBlack)),
-                    //!
-                    const SizeBoxeVirtcal(
-                      value: 1,
-                    ),
-                    const Divider(
-                      color: kBlue,
-                      //!
-                      thickness: 4,
-                      endIndent: 120,
-                      indent: 120,
-                    ),
-                    const SizeBoxeVirtcal(
-                      value: 2.5,
-                    ),
-                    CustomTextFormField(
-                      onSaved: (data) {
-                        fullName = data;
-                      },
-                      width: SizeConfig.screenWidth! * 0.7,
-                      label: "Enter your Full Name",
-                    ),
-                    const SizeBoxeVirtcal(
-                      value: 2,
-                    ),
-                    CustomTextFormField(
-                      keyboardType: TextInputType.phone,
-
-                      onSaved: (data) {
-                        phoneNum = data;
-                      },
-                      //!
-                      width: SizeConfig.screenWidth! * 0.7,
-                      label: "Enter your Phone Number",
-                    ),
-                    const SizeBoxeVirtcal(value: 2.5),
-                    CustomButton(
-                      title: "Login",
-                      onTap: () {
-                        if (formKey.currentState!.validate()) {
-                          formKey.currentState!.save();
-                          BlocProvider.of<AuthCubit>(context).userLogin(
-                              phoneNum: phoneNum!, fullName: fullName!);
-
-                          kPrint("fullName : $fullName & phoneNum : $phoneNum");
-                        }
-                      },
-                    )
-                  ],
+                  ),
                 ),
               ),
-            ),
+              const SizeVertical(value: 5),
+            ],
           ),
         );
       },

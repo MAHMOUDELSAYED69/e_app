@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SizeConfig {
@@ -11,16 +10,15 @@ class SizeConfig {
     screenWidth = MediaQuery.of(context).size.width;
     screenHeight = MediaQuery.of(context).size.height;
     orientation = MediaQuery.of(context).orientation;
-   
+
     defaultSize = orientation == Orientation.landscape
         ? screenHeight! * .024
         : screenWidth! * .024;
-
-     print('this is the default size $defaultSize');
   }
 }
-class SizeBoxeHorsental extends StatelessWidget {
-  const SizeBoxeHorsental({super.key, required this.value});
+
+class SizeHorizontal extends StatelessWidget {
+  const SizeHorizontal({super.key, required this.value});
   final double value;
 
   @override
@@ -31,10 +29,8 @@ class SizeBoxeHorsental extends StatelessWidget {
   }
 }
 
-
-
-class SizeBoxeVirtcal extends StatelessWidget {
-  const SizeBoxeVirtcal({super.key, required this.value});
+class SizeVertical extends StatelessWidget {
+  const SizeVertical({super.key, required this.value});
   final double value;
   @override
   Widget build(BuildContext context) {

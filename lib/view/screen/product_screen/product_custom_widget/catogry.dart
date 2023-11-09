@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 class Category extends StatelessWidget {
   const Category({
     super.key,
-    required this.imege,
+    required this.image,
   });
-  final String imege;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,9 +17,9 @@ class Category extends StatelessWidget {
         height: SizeConfig.defaultSize! * 17,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(18)),
-        ),
+        ),  
         child: Image.asset(
-          imege,
+          image,
         ),
       ),
     );

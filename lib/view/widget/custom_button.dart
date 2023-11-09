@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
         onTap: onTap,
         child: Container(
             width: 282,
-            height: 48.01,
+            height: 48,
             alignment: Alignment.center,
             decoration: ShapeDecoration(
               gradient: kButtonColor,

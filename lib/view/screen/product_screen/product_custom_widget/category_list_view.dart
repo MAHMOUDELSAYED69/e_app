@@ -1,9 +1,8 @@
 import 'package:e_app/core/helper/responsive.dart';
 import 'package:flutter/material.dart';
 
-
-class CatogeryListViwe extends StatelessWidget {
-  const CatogeryListViwe({
+class CatogeryListView extends StatelessWidget {
+  const CatogeryListView({
     super.key,
     required this.catogry,
   });

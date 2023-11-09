@@ -1,16 +1,18 @@
+import 'package:e_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class OtpField extends StatelessWidget {
   const OtpField({
-    super.key, this.onSaved,
+    super.key,
+    this.onSaved,
   });
-    final FormFieldSetter<String>? onSaved;
+  final FormFieldSetter<String>? onSaved;
   @override
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
-    
+
     return SizedBox(
-      height: 64,
+    
       width: 68,
       child: TextFormField(
         controller: controller,
@@ -38,6 +40,7 @@ class OtpField extends StatelessWidget {
         keyboardType: TextInputType.number,
         maxLength: 1,
         decoration: const InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 25),
           counterText: '',
           errorStyle: TextStyle(fontSize: 0),
           border: OutlineInputBorder(
@@ -45,10 +48,10 @@ class OtpField extends StatelessWidget {
               Radius.circular(16),
             ),
             borderSide: BorderSide(
-              color: Colors.white,
+              color: kWhite,
             ),
           ),
-          fillColor: Colors.white,
+          fillColor: kWhite,
           filled: true,
         ),
         textAlign: TextAlign.center,

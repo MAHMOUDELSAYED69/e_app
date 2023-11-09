@@ -37,6 +37,7 @@ class _HelpBoxState extends State<HelpBox> {
               children: [
                 Text(
                   widget.title,
+                  textAlign: TextAlign.start,
                   style: const TextStyle(color: kBlue, fontSize: 20),
                 ),
                 const Spacer(),
@@ -59,6 +60,7 @@ class _HelpBoxState extends State<HelpBox> {
                 padding: const EdgeInsets.only(top: 10, bottom: 20),
                 child: Text(
                   widget.content,
+                  textAlign: TextAlign.start,
                   style: const TextStyle(fontSize: 18),
                 ),
               ),

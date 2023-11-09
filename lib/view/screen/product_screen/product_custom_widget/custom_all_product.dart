@@ -1,5 +1,6 @@
-import 'package:e_app/core/helper/responsive.dart';
+import 'package:e_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/helper/responsive.dart';
 
 class CustemAllprodects extends StatelessWidget {
   const CustemAllprodects({
@@ -16,7 +17,7 @@ class CustemAllprodects extends StatelessWidget {
       child: Container(
         width: SizeConfig.defaultSize! * 13,
         decoration: ShapeDecoration(
-          color: Color(0xFF0062BD),
+          color: kBlue,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
@@ -38,7 +39,7 @@ class CustemAllprodects extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: ShapeDecoration(
-                  color: Colors.white,
+                  color: kWhite,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -52,19 +53,17 @@ class CustemAllprodects extends StatelessWidget {
                   ],
                 ),
                 child: CircleAvatar(
-                    backgroundColor: Colors.white,
+                    backgroundColor: kWhite,
                     backgroundImage: AssetImage(image)),
-         
               ),
             ),
-            const SizeBoxeHorsental(value: 1),
+            const SizeHorizontal(value: 1),
             Text(
               text,
               style: const TextStyle(
                 color: Colors.white,
                 fontSize: 22,
                 fontFamily: 'Inter',
-                fontWeight: FontWeight.w400,
                 height: 0,
               ),
             )
