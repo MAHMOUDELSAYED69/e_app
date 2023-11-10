@@ -1,13 +1,23 @@
-import 'package:e_app/core/constant/image.dart';
-import 'package:e_app/core/helper/responsive.dart';
-import 'package:e_app/view/widget/custom_button.dart';
+
 import 'package:flutter/material.dart';
+import '../../../core/constant/image.dart';
+import '../../../core/helper/responsive.dart';
+import '../../widget/custom_button.dart';
 import '../../widget/custom_container_view.dart';
 import '../../widget/custom_icon_back.dart';
 import '../../widget/over_view_text_info.dart';
 
 class ProdectPage extends StatefulWidget {
-  const ProdectPage({super.key});
+  const ProdectPage(
+      {super.key,
+      required this.name,
+      required this.price,
+      required this.description});
+  final String name;
+
+  final String price;
+  final String description;
+
   @override
   State<ProdectPage> createState() => _ProdectPageState();
 }
@@ -45,17 +55,17 @@ class _ProdectPageState extends State<ProdectPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizeVertical(value: 6),
-                        BackIcon(),
-                        SizeVertical(value: 1.5),
+                        const SizeVertical(value: 6),
+                        const BackIcon(),
+                        const SizeVertical(value: 1.5),
                         Text(
-                          'Predator Helios 300',
-                          style: TextStyle(
+                          widget.name,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 25,
                             fontFamily: 'Inter',
@@ -63,9 +73,9 @@ class _ProdectPageState extends State<ProdectPage> {
                             height: 0,
                           ),
                         ),
-                        SizeVertical(value: 1),
-                        Text(
-                          'Type: Gaming Laptop',
+                        const SizeVertical(value: 1),
+                        const Text(
+                          "Type: Gaming Laptop",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -128,12 +138,12 @@ class _ProdectPageState extends State<ProdectPage> {
             SliverToBoxAdapter(
               child: Row(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Price',
                           style: TextStyle(
                             color: Colors.grey,
@@ -142,10 +152,10 @@ class _ProdectPageState extends State<ProdectPage> {
                             height: 0,
                           ),
                         ),
-                        SizeVertical(value: 1),
+                        const SizeVertical(value: 1),
                         Text(
-                          '30,000 EGP',
-                          style: TextStyle(
+                          widget.price,
+                          style: const TextStyle(
                             color: Color(0xFF464646),
                             fontSize: 18,
                             fontFamily: 'Inter',
@@ -209,12 +219,10 @@ class _ProdectPageState extends State<ProdectPage> {
             const SliverToBoxAdapter(
               child: SizeVertical(value: 2),
             ),
-            const SliverToBoxAdapter(
+            SliverToBoxAdapter(
               child: Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: OverViewText(
-                    overViewText:
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. \nLorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. '),
+                padding: const EdgeInsets.only(left: 20),
+                child: OverViewText(overViewText: widget.description),
               ),
             ),
           ],

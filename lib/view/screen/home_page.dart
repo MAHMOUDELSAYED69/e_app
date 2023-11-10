@@ -1,9 +1,10 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:e_app/view/screen/nav_bar/notfication.dart';
+
 import 'package:flutter/material.dart';
 import '../../core/constant/color.dart';
 import 'nav_bar/favorite.dart';
 import 'nav_bar/home_product.dart';
+import 'nav_bar/notfication.dart';
 import 'nav_bar/setting.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _HomePageState extends State<HomePage> {
     Icons.settings,
   ];
   final List<Widget> classSwitch = [
-    HomeProduct(),
+    const HomeProduct(),
     const FavoritePage(),
     const NotificationPage(),
     const SettingPage(),

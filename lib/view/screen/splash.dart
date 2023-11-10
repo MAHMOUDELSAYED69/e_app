@@ -1,7 +1,8 @@
-import 'package:e_app/core/constant/image.dart';
-import 'package:e_app/core/constant/route.dart';
+
 import 'package:flutter/material.dart';
 
+import '../../core/constant/image.dart';
+import '../../core/constant/route.dart';
 import '../../core/helper/responsive.dart';
 
 class SplashPage extends StatefulWidget {

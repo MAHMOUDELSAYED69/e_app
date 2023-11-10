@@ -1,5 +1,5 @@
 class Products {
-  String? id;
+  int? id;
   String? company;
   String? name;
   String? type;

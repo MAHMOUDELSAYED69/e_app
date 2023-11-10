@@ -1,6 +1,8 @@
-import 'package:e_app/core/constant/color.dart';
-import 'package:e_app/core/helper/responsive.dart';
+
 import 'package:flutter/material.dart';
+
+import '../../../core/constant/color.dart';
+import '../../../core/helper/responsive.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});

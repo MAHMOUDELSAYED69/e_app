@@ -1,14 +1,14 @@
-import 'package:e_app/core/constant/color.dart';
-import 'package:e_app/core/helper/custom_print.dart';
-import 'package:e_app/core/helper/responsive.dart';
-import 'package:e_app/core/helper/scaffold_snakbar.dart';
-import 'package:e_app/view/widget/custom_button.dart';
-import 'package:e_app/view/widget/custom_text_form_field.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import '../../core/constant/color.dart';
 import '../../core/constant/route.dart';
+import '../../core/helper/responsive.dart';
+import '../../core/helper/scaffold_snakbar.dart';
 import '../../cubits/auth_cubit/auth_cubit.dart';
+import 'custom_button.dart';
+import 'custom_text_form_field.dart';
 
 class CenterInput extends StatelessWidget {
   const CenterInput({super.key});

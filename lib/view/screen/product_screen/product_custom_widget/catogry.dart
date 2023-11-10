@@ -1,5 +1,7 @@
-import 'package:e_app/core/helper/responsive.dart';
+
 import 'package:flutter/material.dart';
+
+import '../../../../core/helper/responsive.dart';
 
 
 class Category extends StatelessWidget {

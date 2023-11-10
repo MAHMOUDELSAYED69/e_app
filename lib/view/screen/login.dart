@@ -1,7 +1,9 @@
-import 'package:e_app/core/constant/image.dart';
-import 'package:e_app/view/widget/login_background.dart';
-import 'package:e_app/view/widget/login_center_input.dart';
+
 import 'package:flutter/material.dart';
+
+import '../../core/constant/image.dart';
+import '../widget/login_background.dart';
+import '../widget/login_center_input.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

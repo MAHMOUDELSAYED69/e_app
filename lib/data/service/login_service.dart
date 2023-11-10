@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:e_app/data/model/product_model.dart';
+
 
 import '../../core/helper/custom_print.dart';
 import '../model/help_model.dart';
+import '../model/product_model.dart';
 
 class Service {
   static Dio dio = Dio();
@@ -73,25 +74,25 @@ class Service {
     try {
       Response response = await dio.get("getProducts");
 
-      List<dynamic> helpJsonList = response.data['products'];
+      List<dynamic> productJsonList = response.data['products'];
 
       List<Products> productModel = [];
 
-      for (var element in helpJsonList) {
+      for (var element in productJsonList) {
         Products product = Products(
-            company: "Products",
-            description: "description",
-            image: "image",
-            price: "price",
-            type: "type",
-            name: "name",
-            id: "id");
+            company: element["Products"],
+            description: element["description"],
+            image: element["image"],
+            price: element["price"],
+            type: element["type"],
+            name: element["name"],
+            id: element["id"]);
         productModel.add(product);
       }
 
       // List<Help> helpList =
       //     helpJsonList.map((json) => Help.fromJson(json)).toList();
-      kPrint(response.data['help'], title: response.statusCode.toString());
+      kPrint(productJsonList, title: response.statusCode.toString());
       // return helpList;
       return productModel;
     } catch (err) {

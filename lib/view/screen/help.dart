@@ -1,9 +1,10 @@
-import 'package:e_app/core/constant/color.dart';
-import 'package:e_app/core/constant/route.dart';
-import 'package:e_app/data/model/help_model.dart';
-import 'package:e_app/view/widget/custom_button.dart';
+
 import 'package:flutter/material.dart';
+import '../../core/constant/color.dart';
+import '../../core/constant/route.dart';
+import '../../data/model/help_model.dart';
 import '../../data/service/login_service.dart';
+import '../widget/custom_button.dart';
 import '../widget/custom_help_box.dart';
 
 class HelpPage extends StatefulWidget {
